@@ -15,6 +15,12 @@ export const ConfigurationSchema = Annotation.Root({
    * The name of the language model to be used by the agent.
    */
   model: Annotation<string>,
+
+  /**
+   * A custom parameter. Provide bar as value
+   */
+  foo: Annotation<string>,
+
 });
 
 export function ensureConfiguration(
@@ -28,5 +34,6 @@ export function ensureConfiguration(
     systemPromptTemplate:
       configurable.systemPromptTemplate ?? SYSTEM_PROMPT_TEMPLATE,
     model: configurable.model ?? "claude-3-7-sonnet-latest",
+    foo: "bar"
   };
 }
